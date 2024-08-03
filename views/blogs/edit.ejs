@@ -1,0 +1,49 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Create an Edit listing</h3>
+    <form
+      method="POST"
+      action="/blogs/<%= blog._id %>?_method=PUT"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          name="blog[title]"
+          value="<%= blog.title %>"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Title looks good</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          name="blog[description]"
+          value="<%=blog.description %>"
+          type="text"
+          class="form-control"
+          required
+        ></textarea>
+        <div class="invalid-feedback">decription should be valid</div>
+      </div>
+
+      <div class="mb-3">
+        original blog image <br />
+        <img src="<%= originalImageUrl %>" />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">upload new Image</label>
+        <input name="blog[image]" type="file" class="form-control" />
+      </div>
+
+      <button class="btn btn-dark edit-btn mb-3">Edit</button>
+    </form>
+  </div>
+</div>

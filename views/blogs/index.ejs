@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for(let blog of allBlogs){%>
+  <a href="/blogs/<%= blog._id %> " class="blog-link">
+    <div class="card col blog-card">
+      <img
+        src="<%= blog.image.url %>"
+        class="card-img-top"
+        alt="blog_image"
+        style="height: 20rem"
+      />
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b> <%= blog.title %> </b>
+        </p>
+      </div>
+    </div>
+
+    <% } %>
+  </a>
+</div>
