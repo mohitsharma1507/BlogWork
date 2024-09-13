@@ -78,6 +78,7 @@ router.post(
     let savedBlog = await newBlog.save();
     console.log(savedBlog);
 
+    req.flash("success", "New Blog Created!");
     res.redirect("/blogs");
   })
 );
@@ -103,27 +104,6 @@ router.get(
 
 // Update Route
 
-// router.put(
-//   "/:id",
-//   isOwner,
-//   validateBlogs,
-//   wrapAsync(async (req, res) => {
-//     if (!req.isAuthenticated()) {
-//       req.session.redirectUrl = req.originalUrl;
-//       req.flash("error", "you must be logged first");
-//       return res.redirect("/login");
-//     }
-//     let { id } = req.params;
-//     let blog = await Blog.findByIdAndUpdate(id, { ...req.body.blog });
-//     if (typeof req.file !== "undefined") {
-//       let url = req.file.path;
-//       let filename = req.file.filename;
-//       blog.image = { url, filename };
-//       await blog.save();
-//     }
-//     res.redirect(`/blogs/${id}`);
-//   })
-// );
 router.put(
   "/:id",
   isOwner,
@@ -150,7 +130,6 @@ router.put(
     res.redirect(`/blogs/${id}`);
   })
 );
-
 
 // Delete Route
 router.delete(

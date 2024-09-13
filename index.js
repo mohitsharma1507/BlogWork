@@ -29,8 +29,8 @@ app.use(express.json());
 app.engine("ejs", ejsMate);
 
 // const dbUrl = "mongodb://127.0.0.1:27017/BLOG";
-const dbUrl =
-  "mongodb+srv://mogu:01152003@cluster0.pg5ji3o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const dbUrl ="mongodb://127.0.0.1:27017/BLOG";
+  
 
 main()
   .then((res) => {
